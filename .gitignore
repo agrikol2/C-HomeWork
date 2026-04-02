@@ -1,0 +1,10 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.pidb
+*.userprefs
+*.usertasks
+*.cache
+
