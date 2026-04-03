@@ -51,7 +51,7 @@ class Program
         Console.WriteLine("Now, let's solve the equation.");
         double result = first_task(a, b,0);
         int result_f = factorial(n);
-        Console.WriteLine(result_f);
+        Console.WriteLine($"Factorial = {result_f}");
     }
 
     
@@ -82,7 +82,7 @@ class Program
 
         return f;
     }
-
+    
 
     private static int factorial(int n)
     {
@@ -93,10 +93,11 @@ class Program
         }   
         if(n == 0)
         {
-            //Console.WriteLine(1);
             return 1;
         }
         return n * factorial(n-1);
+
+
 
 
 
