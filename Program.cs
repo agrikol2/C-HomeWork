@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+
+
 namespace TourOfCsharp;
 
 class Program
@@ -48,14 +48,52 @@ class Program
 
         Console.WriteLine($"Great! Now we can add them or subtract them: \n{a} + {b} = {a+b} \nand \n{a} - {b} = {a-b}");
         Console.WriteLine();
-        Console.WriteLine("Now, let's solve the equation.");
-        double result = first_task(a, b,0);
+        Console.WriteLine("Now, let's solve the equation.\n");
+        double result_first_task = first_task(a, b,0);
         int result_f = factorial(n);
-        Console.WriteLine($"Factorial = {result_f}");
+        Console.WriteLine($"Factorial = {result_f}\n");
+        Console.WriteLine("Now, second task (2)");
+
+
+
+
+        double x,y;
+        
+
+        Console.Write("Enter x, but no more than 1 and no less than -1 = ");
+        while (!double.TryParse(Console.ReadLine(), out x))
+        {
+            Console.WriteLine("Error, please, enter the first number: ");
+        }
+        Console.Write("Enter y, but no more than 1 and no less than -1 = ");
+        while (!double.TryParse(Console.ReadLine(), out y))
+        {
+            Console.WriteLine("Error, please, enter the second number: ");
+        }
+
+
+        second_task(x,y);
+        
+        
+        Console.WriteLine("\nThird task (3)\n");
+    
+    
+        double e;
+        Console.Write("Enter number E: ");
+        
+        while (!double.TryParse(Console.ReadLine(), out e))
+        {
+            Console.WriteLine("Error, please, enter number E: ");
+        }
+
+        third_task(e);
+
+        
+        
     }
 
     
-    private static double first_task(double a, double b, double f)
+    public static double first_task(double a, double b, double f)
     {
 
         double numerator = Math.Pow(a,2) + Math.Pow(b,Math.Pow(a,2));
@@ -84,7 +122,7 @@ class Program
     }
     
 
-    private static int factorial(int n)
+    public static int factorial(int n)
     {
         if (n<0)
         {
@@ -104,7 +142,42 @@ class Program
 
     }
 
+    public static void second_task(double x, double y)
+    {
+
+        if (y > -x)
+        {
+            Console.WriteLine("Point x,y belongs to a part of the plane");
+            
+        }
+        else
+        {
+            
+            Console.WriteLine("Point x,y does not belong to a part of the plane");
+        }
     
+        
+    }
+
+    public static void third_task(double e)
+    {
+        double sum = 0;
+        double n = 1;
+        
+        double y = 1 / Math.Pow((n+1),n);
+
+        while (y >= e)
+        {
+            sum += y;
+            n +=1;
+            y = 1 / Math.Pow((n+1),n);
+        }
+        
+        
+        Console.WriteLine($"Сумма ряда с точностью E = {e} равна: {sum}");
+        Console.WriteLine($"Количество учтённых членов: {n - 1}");
+    }
+
 }   
 
 
